@@ -1,0 +1,23 @@
+li {
+  font-size: 1.5rem;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+i {
+  color: #e63946;
+  font-size: 1.75rem;
+  margin-left: auto;
+  padding: 10px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+i:hover {
+  color: #91121d;
+}
+.finish {
+  background-color: seagreen;
+  color: white;
+}

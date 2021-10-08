@@ -1,27 +1,36 @@
 <section class="py-5">
-  <div class="container">
-    <h1 class="text-center pb-5">Mi lista de tareas</h1>
-    <button class="btn btn-primary px-5" (click)="orderByPiority()">Ordenar por pioridad</button>
-    <button class="btn btn-primary ml-2 px-5" (click)="orderById()">Ordenar por creación</button>
+<div class="container">
+  <h1 class="text-center pb-5">Mi lista de tareas</h1>
+  <button class="btn btn-primary ml-2 mt-2  px-5" (click)="orderByPiority()">Ordenar por pioridad</button>
+  <button class="btn btn-primary ml-2 mt-2  px-5" (click)="orderById()">Ordenar por creación</button>
 
-    <ul class="list-group py-4">
-      <li class="list-group-item" *ngFor="let element of tasks" [hidden]="element.finish && hidden" (click)="finishTask(element.id)"  [ngClass]="{'finish': element.finish}"><span>{{element.name}} -- {{element.piority}}</span><i (click)="deletedTask(element.id)" class="fa fa-trash" aria-hidden="true"></i></li>
-    </ul>
-    <div class="form-group">
-      <label for="tarea">Tarea</label>
-      <input type="text" class="form-control" id="tarea" aria-describedby="helpId" [(ngModel)]="nameTask">
-      <small id="helpId" class="form-text text-muted">Nombre de la tarea</small>
-    </div>
-    <div class="form-group">
-      <label for="pioridad">Pioridad</label>
-      <input type="number" class="form-control" id="pioridas" aria-describedby="helpId" [(ngModel)]="piorityTask">
-      <small id="helpId" class="form-text text-muted">Pioridad de la tarea</small>
-    </div>
-    <input class="btn btn-success px-5" type="button" value="Añadir" (click)="addTask()">
-    <input class="btn btn-warning px-5 ml-2" type="button" value="Todo terminado" (click)="finishAllTask()">
-    <input class="btn btn-danger px-5 ml-2" type="button" value="Eliminar todo" (click)="deletedAllTask()">
-    <button class="btn btn-info px-5 ml-2" *ngIf="hidden" (click)="hidden=false">Ver las terminadas</button>
-    <button class="btn btn-info px-5 ml-2" *ngIf="!hidden" (click)="hidden=true">Oculta las terminadas</button>
-    <h3 class="py-4">{{congratu}}</h3>
+  <ul class="list-group py-4">
+    <li class="list-group-item" *ngFor="let element of tasks" [hidden]="element.finish && hidden" (click)="finishTask(element.id)"  
+      [ngClass]="{'finish': element.finish, 'alta': element.piority==3, 'media': element.piority==2, 'baja': element.piority==1}">
+      <span>{{element.name}}</span>
+      <i (click)="deletedTask(element.id)" class="fa fa-trash" aria-hidden="true"></i>
+    </li>
+  </ul>
+  <div class="form-group">
+    <label for="tarea">Tarea</label>
+    <input type="text" class="form-control" id="tarea" aria-describedby="helpId" [(ngModel)]="nameTask">
+    <small id="helpId" class="form-text text-muted">Nombre de la tarea</small>
   </div>
+  <div class="form-group">
+    <label for="pioridad">Pioridad</label>
+    <select class="custom-select" id="pioridad" [(ngModel)]="piorityTask">
+      <option value="1">Pioridad baja</option>
+      <option value="2">Pioridad media</option>
+      <option value="3">Pioridad alta</option>
+    </select>
+  </div>
+  <div class="d-flex flex-wrap">
+    <input class="btn btn-success ml-2 mt-2 px-5" type="button" value="Añadir" (click)="addTask()">
+    <input class="btn btn-warning px-5 ml-2 mt-2" type="button" value="Todo terminado" (click)="finishAllTask()">
+    <input class="btn btn-danger px-5 ml-2 mt-2" type="button" value="Eliminar todo" (click)="deletedAllTask()">
+    <button class="btn btn-info px-5 ml-2 mt-2" *ngIf="hidden" (click)="hidden=false">Ver las terminadas</button>
+    <button class="btn btn-info px-5 ml-2 mt-2" *ngIf="!hidden" (click)="hidden=true">Oculta las terminadas</button>
+  </div>
+  <h3 class="py-4">{{congratu}}</h3>
+</div>
 </section>

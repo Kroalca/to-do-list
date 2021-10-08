@@ -1,23 +1,55 @@
+.finish {
+  background-color: #12a561 !important;
+  color: white !important;
+}
+
+.baja {
+  background-color: #0466c8;
+  color: white;
+}
+
+.baja:hover {
+  background-color: #3799fb;
+}
+
+.media {
+  background-color: #fdc921;
+}
+
+.media:hover {
+  background-color: #fee286;
+}
+
+.alta {
+  background-color: #c00021;
+  color: white;
+}
+
+.alta:hover {
+  background-color: #ff1f44;
+}
+
+.alta i:hover,
+.baja i:hover {
+  color: #ddd;
+}
+
+.media i:hover {
+  color: #555;
+}
+
 li {
   font-size: 1.5rem;
   transition: all 0.5s ease;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  cursor: pointer;
 }
 i {
-  color: #e63946;
   font-size: 1.75rem;
   margin-left: auto;
   padding: 10px;
   transition: all 0.5s ease;
   cursor: pointer;
-}
-
-i:hover {
-  color: #91121d;
-}
-.finish {
-  background-color: seagreen;
-  color: white;
 }

@@ -17,7 +17,7 @@ export class AppComponent {
   nameTask: string = '';
   tasks: Array<Task> = [];
   idCount: number = 1;
-  piorityTask: number = 0;
+  piorityTask: string = '1';
   congratu: string = '';
 
   addTask(): void {
@@ -25,12 +25,13 @@ export class AppComponent {
       id: this.idCount,
       name: this.nameTask,
       finish: false,
-      piority: this.piorityTask,
+      piority: parseInt(this.piorityTask),
     };
     this.tasks.push(task);
     this.nameTask = '';
-    this.piorityTask = 0;
+    this.piorityTask = '1';
     this.idCount++;
+    console.log(task);
   }
 
   deletedTask(id: number) {

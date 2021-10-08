@@ -39,7 +39,9 @@ export class AppComponent {
   }
 
   finishTask(id: number): void {
-    (this.tasks.find((task) => task.id === id) as Task).finish = true;
+    let task: Task = this.tasks.find((task) => task.id === id) as Task;
+    task.finish = true;
+    task.piority = 0;
     if (this.tasks.every((task) => task.finish)) {
       this.congratuMessage();
     }

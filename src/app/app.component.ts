@@ -34,38 +34,38 @@ export class AppComponent {
     console.log(task);
   }
 
-  deletedTask(id: number) {
+  deletedTask(id: number): void {
     this.tasks = this.tasks.filter((task) => task.id !== id);
   }
 
-  finishTask(id: number) {
+  finishTask(id: number): void {
     (this.tasks.find((task) => task.id === id) as Task).finish = true;
     if (this.tasks.every((task) => task.finish)) {
       this.congratuMessage();
     }
   }
 
-  deletedAllTask() {
+  deletedAllTask(): void {
     this.tasks = [];
   }
 
-  finishAllTask() {
+  finishAllTask(): void {
     this.tasks.forEach((task) => (task.finish = true));
     this.congratuMessage();
   }
 
-  congratuMessage() {
+  congratuMessage(): void {
     this.congratu = 'Has terminado TODAS las TAREAS';
     setTimeout(() => {
       this.congratu = '';
     }, 3000);
   }
 
-  orderByPiority() {
+  orderByPiority(): void {
     this.tasks = this.tasks.sort((a, b) => a.piority - b.piority).reverse();
   }
 
-  orderById() {
+  orderById(): void {
     this.tasks = this.tasks.sort((a, b) => a.id - b.id);
   }
 }

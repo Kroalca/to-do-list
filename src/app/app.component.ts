@@ -19,6 +19,7 @@ export class AppComponent {
   idCount: number = 1;
   piorityTask: string = '1';
   congratu: string = '';
+  orderPiority: boolean = false;
 
   addTask(): void {
     let task: Task = {
@@ -28,6 +29,7 @@ export class AppComponent {
       piority: parseInt(this.piorityTask),
     };
     this.tasks.push(task);
+    this.orderPiority ? this.orderByPiority() : this.orderById();
     this.nameTask = '';
     this.piorityTask = '1';
     this.idCount++;
@@ -42,6 +44,7 @@ export class AppComponent {
     let task: Task = this.tasks.find((task) => task.id === id) as Task;
     task.finish = true;
     task.piority = 0;
+    this.orderPiority ? this.orderByPiority() : this.orderById();
     if (this.tasks.every((task) => task.finish)) {
       this.congratuMessage();
     }
@@ -65,9 +68,11 @@ export class AppComponent {
 
   orderByPiority(): void {
     this.tasks = this.tasks.sort((a, b) => a.piority - b.piority).reverse();
+    this.orderPiority = true;
   }
 
   orderById(): void {
     this.tasks = this.tasks.sort((a, b) => a.id - b.id);
+    this.orderPiority = false;
   }
 }
